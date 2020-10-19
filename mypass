@@ -1,0 +1,57 @@
+#!/usr/bin/env python3
+"""
+Author : denton <denton@localhost>
+Date   : 2020-09-13
+Purpose: hash a phrase
+"""
+
+import argparse
+
+
+# --------------------------------------------------
+def get_args():
+    """Get command-line arguments"""
+
+    parser = argparse.ArgumentParser(
+        description='Password generator',
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+
+    parser.add_argument('positional',
+                        metavar='str1',
+                        help='Service or salt plus string to hash')
+
+    parser.add_argument('-l',
+                        '--length',
+                        metavar='length',
+                        type=int,
+                        default=40,
+                        help='length of hash')
+
+    parser.add_argument('-s','--suffix',
+                        metavar='suffix',
+                        type=str,
+                        default='.H0k',
+                        help='Suffix string to meet heuristics')
+                        
+
+    return parser.parse_args()
+
+
+# --------------------------------------------------
+def main():
+    """Make a jazz noise here"""
+    import hashlib
+
+    args = get_args()
+    str_arg = args.positional
+    length = args.length
+    suffix = args.suffix
+
+    ans = hashlib.sha1(str_arg.encode('utf8')).hexdigest()
+    print(ans.upper()[0:length] + suffix)
+#    print(length)
+#    print(suffix)
+
+# --------------------------------------------------
+if __name__ == '__main__':
+    main()
