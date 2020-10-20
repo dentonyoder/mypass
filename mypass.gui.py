@@ -70,7 +70,7 @@ def myClearCache():
 
 # Define the main form
 f1 = Tk()
-f1.title("mypass.gui by: Denton Yoder denton@vt.edu v:1.1")
+f1.title("mypass.gui by: Denton Yoder denton@vt.edu v:1.2")
 
 var1 = IntVar()
 var2 = IntVar()
@@ -83,7 +83,7 @@ lab1 = Label(f1,text="Secret").grid(row=0,column=0)
 lab2 = Label(f1,text="Service").grid(row=1,column=0)
 lab3 = Label(f1,text="Prefix").grid(row=2,column=0)
 lab4 = Label(f1,text="Suffix").grid(row=3,column=0)
-lab5 = Label(f1,text="Hash Result").grid(row=4,column=0)
+lab5 = Label(f1,text="Hash").grid(row=4,column=0)
 
 #Add and place edit boxes.  They can't be pushed directly like above, or they then can't be edited...
 eb1 = Entry(f1)
@@ -103,23 +103,23 @@ eb5 = Entry(f1)
 eb5.grid(row=4,column=1)
 
 #Add obfuscate option.
-cb1 = Checkbutton(f1, text="Obfuscate",variable=var1, command = hidesecret)
+cb1 = Checkbutton(f1, text="Hide",variable=var1, command = hidesecret)
 cb1.grid(row=0, column=2)
 
-cb2 = Checkbutton(f1, text="Obfuscate",variable=var2, command=hideservice)
+cb2 = Checkbutton(f1, text="Hide",variable=var2, command=hideservice)
 cb2.grid(row=1, column=2)
 
-cb3 = Checkbutton(f1, text="Obfuscate",variable=var3, command=hideprefix)
+cb3 = Checkbutton(f1, text="Hide",variable=var3, command=hideprefix)
 cb3.grid(row=2, column=2)
 
-cb4 = Checkbutton(f1, text="Obfuscate",variable=var4, command=hidesuffix)
+cb4 = Checkbutton(f1, text="Hide",variable=var4, command=hidesuffix)
 cb4.grid(row=3, column=2)
 
-cb5 = Checkbutton(f1, text="Obfuscate",variable=var5, command=hideans)
+cb5 = Checkbutton(f1, text="Hide",variable=var5, command=hideans)
 cb5.grid(row=4, column=2)
 
 #Add hash types
-lab6 = Label(f1,text="  Select Hash Type  ").grid(row=0,column=3)
+lab6 = Label(f1,text="  Hash Type  ").grid(row=0,column=3)
 
 rbvar = IntVar()
 rb1 = Radiobutton(f1, text = "Sha1", variable = rbvar, value = 1)
@@ -131,9 +131,9 @@ rb3 = Radiobutton(f1, text = "Sha512", variable = rbvar, value = 3)
 rb3.grid(row=3,column=3)
 
 #Add max length
-lab7 = Label(f1,text="Select Max length").grid(row=0,column=4)
+lab7 = Label(f1,text="Max length").grid(row=0,column=4)
 rbvar2 = IntVar()
-rb4 = Radiobutton(f1,text="No limit", variable = rbvar2, value = 1)
+rb4 = Radiobutton(f1,text="None", variable = rbvar2, value = 1)
 rb4.grid(row=1,column=4)
 rb5 = Radiobutton(f1,text="40", variable = rbvar2, value = 2)
 rb5.grid(row=2,column=4)
@@ -152,7 +152,7 @@ but2.grid(row=1, column=5)
 
 import os
 if os.name == "nt" :
-	but3 = Button(f1, text="Clear windows cache", command=myClearCache)
+	but3 = Button(f1, text="Clear Cache", command=myClearCache)
 	but3.grid(row=2,column=5)
 
 
