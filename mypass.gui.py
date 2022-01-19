@@ -5,6 +5,8 @@ Date   : 2020-09-13
 Purpose: hash a phrase
 """
 
+# apt install python3 and python3-tk for this to run.
+
 from tkinter import *
 import hashlib
 
